@@ -26,7 +26,7 @@
 
                 <Label Text="Mathias Vera"
                FontSize="24"
-               TextColor="#0f0f0f"
+               TextColor="#ffffff"
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
                 Grid.Column="1"
@@ -34,7 +34,7 @@
 
                 <Label Text="Edad: 20"
                FontSize="18"
-               TextColor="#0f0f0f"
+               TextColor="#ffffff"
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand" 
                 Grid.Column="1"
