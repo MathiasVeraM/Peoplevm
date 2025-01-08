@@ -23,7 +23,8 @@ public class PersonRepository
 
     public PersonRepository(string dbPath)
     {
-        _dbPath = dbPath;                        
+        _dbPath = dbPath;  
+        
     }
 
     public void AddNewPerson(string name)
@@ -55,15 +56,21 @@ public class PersonRepository
         // TODO: Init then retrieve a list of Person objects from the database into a list
         try
         {
-            Init ();
-            return conn.Table<Person>().ToList();
+            Init();
+            var people = conn.Table<Person>().ToList();
+
+            foreach (var person in people)
+            {
+                Console.WriteLine($"Recuperado: {person.Nombre}");
+            }
+
+            return people;
         }
         catch (Exception ex)
         {
-            StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+            StatusMessage = $"Error al recuperar datos: {ex.Message}";
+            return new List<Person>();
         }
-
-        return new List<Person>();
     }
 
     public void DeletePerson(int personId)

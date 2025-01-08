@@ -4,15 +4,38 @@
              xmlns:vm="clr-namespace:People.ViewModels"
              xmlns:model="clr-namespace:People.Models"
              x:Class="People.MainPage"
-             BackgroundColor="{DynamicResource Light}"
+             BackgroundColor="#f1f1f1" 
              Title="Mathias Vera">
 
     <ContentPage.BindingContext>
         <vm:mathiasveraPaginaPrincipalViewModel />
     </ContentPage.BindingContext>
+<ScrollView>
+    <StackLayout Padding="20" Spacing="20">
 
-    <Grid Padding="10" RowSpacing="10" ColumnSpacing="10"
-          RowDefinitions="Auto,Auto,Auto,*,Auto">
+        <Frame BackgroundColor="#ffffff" CornerRadius="10" Padding="20" HasShadow="True">
+            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
+
+                <Image Source="bobpreocupado.jpg"
+               HeightRequest="150" WidthRequest="150" 
+               Aspect="AspectFill" 
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+                <Label Text="Mathias Vera"
+               FontSize="24"
+               TextColor="#333333"
+               HorizontalOptions="End"
+               VerticalOptions="Center" />
+
+                <Label Text="Edad: 20"
+               FontSize="18"
+               TextColor="#777777"
+               HorizontalOptions="End"
+               VerticalOptions="End" />
+
+            </Grid>
+        </Frame>
 
         <Entry x:Name="mvera_entry_newPerson"
                Text="{Binding NewPersonName}"
@@ -20,37 +43,33 @@
 
         <Button x:Name="mvera_button_addPerson"
                 Text="Agregar Persona"
-                Grid.Row="1"
                 Command="{Binding AddPersonCommand}" />
 
         <Label x:Name="mvera_label_statusMessage"
                Text="{Binding StatusMessage}"
-               TextColor="{StaticResource Primary}"
-               Grid.Row="2" />
+               TextColor="#3498db"/>
 
-        <CollectionView x:Name="mvera_collectionview_peopleList"
-                        Grid.Row="3"
+            <CollectionView x:Name="mvera_collectionview_peopleList"
                         ItemsSource="{Binding People}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Person">
-                    <Grid ColumnDefinitions="*,2*">
-                        <Label x:Name="mvera_label_personId" Text="{Binding Id}" TextColor="{StaticResource Primary}" />
-                        <Label x:Name="mvera_label_personName" Grid.Column="1" Text="{Binding Nombre}" TextColor="{StaticResource Primary}" />
-                        <Button x:Name="mvera_button_deletePerson"
-                                Grid.Column="2" Text="Eliminar"
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Person">
+                        <Grid ColumnDefinitions="*,2*">
+                            <Label Text="{Binding Id}" TextColor="#3498db" />
+                            <Label Grid.Column="1" Text="{Binding Nombre}" TextColor="#3498db" />
+                            <Button Grid.Column="2" Text="Eliminar"
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type vm:mathiasveraPaginaPrincipalViewModel}}, Path=DeletePersonCommand}"
                                 CommandParameter="{Binding .}" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Button x:Name="mvera_button_getPeople"
+            <Button x:Name="mvera_button_getPeople"
                 Text="Obtener todas las personas"
-                Grid.Row="4"
                 Command="{Binding GetPeopleCommand}" />
 
-    </Grid>
-
+    </StackLayout>
+</ScrollView>
 </ContentPage>
+
 

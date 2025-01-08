@@ -90,11 +90,11 @@ namespace People.ViewModels
                     People.Add(person);
                 }
 
-                StatusMessage = "People retrieved successfully.";
+                StatusMessage = "Personas recuperadas con éxito.";
             }
             catch (Exception ex)
             {
-                StatusMessage = $"Error retrieving people: {ex.Message}";
+                StatusMessage = $"Error al recuperar personas: {ex.Message}";
             }
         }
 
