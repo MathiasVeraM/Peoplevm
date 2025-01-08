@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:People.ViewModels"
              xmlns:model="clr-namespace:People.Models"
              x:Class="People.MainPage"
-             BackgroundColor="#f1f1f1" 
+             BackgroundColor="#dcb2b3" 
              Title="Mathias Vera">
 
     <ContentPage.BindingContext>
@@ -13,26 +13,32 @@
 <ScrollView>
     <StackLayout Padding="20" Spacing="20">
 
-        <Frame BackgroundColor="#ffffff" CornerRadius="10" Padding="20" HasShadow="True">
-            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *">
+            <Frame BackgroundColor="#ba6667" CornerRadius="10" Padding="20" HasShadow="True">
+            <Grid RowDefinitions="*, *" ColumnDefinitions="*, *">
 
                 <Image Source="bobpreocupado.jpg"
                HeightRequest="150" WidthRequest="150" 
                Aspect="AspectFill" 
                HorizontalOptions="Center"
-               VerticalOptions="Center" />
+               VerticalOptions="Center" 
+                Grid.Column="0"
+                Grid.RowSpan="2"/>
 
                 <Label Text="Mathias Vera"
                FontSize="24"
-               TextColor="#333333"
-               HorizontalOptions="End"
-               VerticalOptions="Center" />
+               TextColor="#0f0f0f"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
+                Grid.Column="1"
+                Grid.Row="0"/>
 
                 <Label Text="Edad: 20"
                FontSize="18"
-               TextColor="#777777"
-               HorizontalOptions="End"
-               VerticalOptions="End" />
+               TextColor="#0f0f0f"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand" 
+                Grid.Column="1"
+                Grid.Row="1"/>
 
             </Grid>
         </Frame>
@@ -43,7 +49,8 @@
 
         <Button x:Name="mvera_button_addPerson"
                 Text="Agregar Persona"
-                Command="{Binding AddPersonCommand}" />
+                Command="{Binding AddPersonCommand}"
+                BackgroundColor="#d01e3c"/>
 
         <Label x:Name="mvera_label_statusMessage"
                Text="{Binding StatusMessage}"
@@ -54,8 +61,8 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Person">
                         <Grid ColumnDefinitions="*,2*">
-                            <Label Text="{Binding Id}" TextColor="#3498db" />
-                            <Label Grid.Column="1" Text="{Binding Nombre}" TextColor="#3498db" />
+                            <Label Text="{Binding Id}" TextColor="#ffffff" />
+                            <Label Grid.Column="1" Text="{Binding Nombre}" TextColor="#ffffff" />
                             <Button Grid.Column="2" Text="Eliminar"
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type vm:mathiasveraPaginaPrincipalViewModel}}, Path=DeletePersonCommand}"
                                 CommandParameter="{Binding .}" />
@@ -66,7 +73,8 @@
 
             <Button x:Name="mvera_button_getPeople"
                 Text="Obtener todas las personas"
-                Command="{Binding GetPeopleCommand}" />
+                Command="{Binding GetPeopleCommand}" 
+                BackgroundColor="#d01e3c"/>
 
     </StackLayout>
 </ScrollView>
