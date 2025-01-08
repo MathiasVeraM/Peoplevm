@@ -4,7 +4,7 @@ using People.Models;
 
 namespace People.ViewModels
 {
-    public class MainPageViewModel : BindableObject
+    public class mathiasveraPaginaPrincipalViewModel : BindableObject
     {
         private readonly PersonRepository _personRepository;
 
@@ -36,10 +36,10 @@ namespace People.ViewModels
         public ICommand GetPeopleCommand { get; }
         public ICommand DeletePersonCommand { get; }
 
-        public MainPageViewModel()
+        public mathiasveraPaginaPrincipalViewModel()
         {
-            // Inicializar repositorio con la ruta de la base de datos
-            var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "localdata.db");
+            // Inicializar repositorio con la ruta de la base de datos con mi nombre
+            var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MathiasVera.db");
             _personRepository = new PersonRepository(dbPath);
 
             People = new ObservableCollection<Person>();
@@ -106,17 +106,17 @@ namespace People.ViewModels
 
                 // Eliminar persona de la base de datos
                 _personRepository.DeletePerson(person.Id);
-                StatusMessage = $"{person.Nombre} ha sido eliminado.";
+                StatusMessage = $"{person.Nombre} ha sido eliminado por Mathias Vera";
 
                 // Actualizar lista
                 GetAllPeople();
 
                 // Mostrar alerta
-                App.Current.MainPage.DisplayAlert("Registro eliminado", $"{person.Nombre} ha sido eliminado.", "OK");
+                App.Current.MainPage.DisplayAlert("Registro eliminado", $"Mathias Vera acaba de eliminar a {person.Nombre}", "OK");
             }
             catch (Exception ex)
             {
-                StatusMessage = $"Error deleting person: {ex.Message}";
+                StatusMessage = $"Mathias Vera, error eliminando a persona: {ex.Message}";
             }
         }
     }

@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:People.Models"
              xmlns:vm="clr-namespace:People.ViewModels"
+             xmlns:model="clr-namespace:People.Models"
              x:Class="People.MainPage"
-             BackgroundColor="{DynamicResource Light}">
+             BackgroundColor="{DynamicResource Light}"
+             Title="Mathias Vera">
 
     <ContentPage.BindingContext>
-        <vm:PaginaPrincipalViewModel />
+        <vm:mathiasveraPaginaPrincipalViewModel />
     </ContentPage.BindingContext>
 
     <Grid Padding="5" RowSpacing="5" ColumnSpacing="5"

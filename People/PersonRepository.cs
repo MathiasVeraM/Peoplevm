@@ -41,11 +41,11 @@ public class PersonRepository
             // TODO: Insert the new person into the database
             result = conn.Insert(new Person { Nombre = name });
 
-            StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, name);
+            StatusMessage = string.Format("Mathias Vera: {0} record(s) agregado (Name: {1})", result, name);
         }
         catch (Exception ex)
         {
-            StatusMessage = string.Format("Failed to add {0}. Error: {1}", name, ex.Message);
+            StatusMessage = string.Format("Mathias Vera: fallo al agregar {0}. Error: {1}", name, ex.Message);
         }
 
     }
