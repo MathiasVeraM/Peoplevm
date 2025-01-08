@@ -65,4 +65,27 @@ public class PersonRepository
 
         return new List<Person>();
     }
+
+    public void DeletePerson(int personId)
+    {
+        try
+        {
+            Init();
+            var personToDelete = conn.Find<Person>(personId);
+
+            if (personToDelete != null)
+            {
+                conn.Delete(personToDelete);
+                StatusMessage = $"Record with ID {personId} deleted.";
+            }
+            else
+            {
+                StatusMessage = $"No record found with ID {personId}.";
+            }
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = $"Failed to delete person. Error: {ex.Message}";
+        }
+    }
 }

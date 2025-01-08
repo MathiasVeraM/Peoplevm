@@ -7,7 +7,6 @@ public class Person
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
-    [MaxLength(125)]
+    [MaxLength(250), Unique]
     public string Nombre { get; set; }
-    public string Apellido { get; set; }
 }
