@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:People.ViewModels"
+             xmlns:model="clr-namespace:People.Models"
              x:Class="People.MainPage"
              BackgroundColor="{DynamicResource Light}"
              Title="Mathias Vera">
@@ -37,7 +38,7 @@
                         <Label x:Name="mvera_label_personName" Grid.Column="1" Text="{Binding Nombre}" TextColor="{StaticResource Primary}" />
                         <Button x:Name="mvera_button_deletePerson"
                                 Grid.Column="2" Text="Eliminar"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=DeletePersonCommand}"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:mathiasveraPaginaPrincipalViewModel}}, Path=DeletePersonCommand}"
                                 CommandParameter="{Binding .}" />
                     </Grid>
                 </DataTemplate>
